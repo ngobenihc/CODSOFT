@@ -45,7 +45,11 @@ public class BankAccount {
 
     public void printTransHistory() {
 
-        System.out.printf("\nTransaction history for account %s ",this.uuid);
+        System.out.printf("\nTransaction history account for ID Number %s",this.uuid);
+        System.out.printf("\nFirstName %s lastName %s",holder.getFirstName(),holder.getSecondName());
+        System.out.printf("\ncontact cell %s email %s",holder.getPhoneNumber(),holder.getEmail());
+        System.out.printf("\nHome location  %s",holder.getHomeAddress());
+
 
         for (int x = this.transactions.size()-1; x >= 0; x--){
             System.out.println(this.transactions.get(x).getSummaryLine());

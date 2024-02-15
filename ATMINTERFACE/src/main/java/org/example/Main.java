@@ -4,20 +4,41 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
+
 
 
         Scanner input = new Scanner(System.in);
-        //System.out.println("Hello world!");
+        String firstName;
+        //priv String name;
+        String lastname;
+        String home;
+        int phone;
+        String email;
+        String password;
+        System.out.print("Enter you firstname: ");
+        firstName = input.nextLine();
+        System.out.print("Enter your lastname: ");
+        lastname = input.nextLine();
+        System.out.print("Enter your location: ");
+        home = input.nextLine();
+        System.out.print("Enter your email: ");
+        email = input.nextLine();
+        System.out.print("Enter you password: ");
+        password = input.nextLine();
+        System.out.print("Enter your phone numbers: ");
+        phone = input.nextInt();
+        input.nextLine();
+
+
 
         BankMain bank = new BankMain("Bank of cliff");
 
-        UserInformation userInformation = bank.addUser("Hlulani","Ngobeni","1234");
+        UserInformation userInformation = bank.addUser(firstName,lastname,password,home,phone,email);
         BankAccount newAccount = new BankAccount("Checking",userInformation,bank);
 
         userInformation.addAcount(newAccount);
         bank.addAcount(newAccount);
-        //System.out.println("Hello world!");
+
 
         UserInformation currentUser;
 
@@ -62,7 +83,7 @@ public class Main {
 
         do {
 
-            System.out.println("Welcome "+ theUser.getFirstName()+"how can we help you?");
+            System.out.println("Welcome "+ theUser.getFirstName()+" how can we help you?");
             System.out.println("1: Bank history ");
             System.out.println("2: Withdrawal ");
             System.out.println("3: Deposit ");

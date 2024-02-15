@@ -76,8 +76,8 @@ public class BankMain {
         this.accounts.add(onAccot);
     }
 
-    public UserInformation addUser(String fistName, String lastName, String pin){
-        UserInformation newUser = new UserInformation (fistName, lastName, pin,this);
+    public UserInformation addUser(String fistName, String lastName, String pin,String location,int cell,String email){
+        UserInformation newUser = new UserInformation (fistName,lastName,pin,location,cell,email,this);
         this.users.add(newUser);
 
         BankAccount newAccount = new BankAccount("saving",newUser,this);

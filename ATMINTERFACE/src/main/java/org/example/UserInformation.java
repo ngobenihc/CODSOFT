@@ -6,19 +6,25 @@ import java.util.ArrayList;
 
 public class UserInformation {
 
-    private String firstName;
-    private String lastName;
-    private byte[] pinHash;
+    private String name;
+    private String surname;
+    private String home;
+    private int phone;
+    private String email;
+    private byte[] password;
     private String uuid;
     private ArrayList<BankAccount> accounts;
 
-    public UserInformation(String firstName, String lastName,String pin, BankMain theBank) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public UserInformation(String firstName, String lastName, String pin,String location,int cell,String email, BankMain theBank) {
+        this.name = firstName;
+        this.surname = lastName;
+        this.home = location;
+        this.phone = cell;
+        this.email=email;
 
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            this.pinHash = md.digest(pin.getBytes());
+            this.password = md.digest(pin.getBytes());
         } catch (NoSuchAlgorithmException e){
             System.err.println("error,caught NoSuchAlgorithmException");
             e.printStackTrace();
@@ -44,7 +50,7 @@ public class UserInformation {
 
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            return MessageDigest.isEqual(md.digest(aPin.getBytes()),this.pinHash);
+            return MessageDigest.isEqual(md.digest(aPin.getBytes()),this.password);
             //this.pinHash = md.digest(aPin.getBytes());
         } catch (NoSuchAlgorithmException e){
             System.err.println("error,caught NoSuchAlgorithmException");
@@ -55,13 +61,27 @@ public class UserInformation {
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return this.name;
+    }
+    public String getSecondName() {
+        return this.surname;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+    public int getPhoneNumber() {
+        return this.phone;
+    }
+    public String getHomeAddress() {
+        return this.home;
     }
 
     public void printAccountsSummary() {
-        System.out.printf("\n\n%s's accounts  summary \n", this.firstName);
+        System.out.println();
+        System.out.println(this.name+"'s accounts  summary");
         for(int i =0; i< this.accounts.size(); i++){
-            System.out.printf("  %d) %s \n ",i+1, this.accounts.get(i).getSummaryLine());
+            //System.out.printf(" %d) %s \n ",i+1, this.accounts.get(i).getSummaryLine());
+            System.out.println(i+1+": "+this.accounts.get(i).getSummaryLine());
         }
         System.out.println();
     }

@@ -12,6 +12,8 @@ public class Main {
 
         while (playGame){
 
+
+            System.out.println("Welcome to the world of Guessing game!");
             int guess = -1;
             int number;
             //play game
@@ -20,7 +22,7 @@ public class Main {
             //System.out.println("Hello world!" + number);
 
             while (guess != number){
-                System.out.print("Enter your number !");
+                System.out.print("Enter your number :");
                 guess = input.nextInt();
                 attempts++;
 
@@ -30,7 +32,7 @@ public class Main {
                     System.out.println("The number is Low!");
 
                 }else {
-                    System.out.println("Congratulation you've picked the right number in "  + attempts + " attempts.");
+                    System.out.println("Congratulation! you've picked the right number in "  + attempts + " attempts.");
                     score += attempts;
                 }
             }

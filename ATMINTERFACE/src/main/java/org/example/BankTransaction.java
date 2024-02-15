@@ -28,8 +28,10 @@ public class BankTransaction {
     }
 
     public String getSummaryLine() {
+        System.out.println();
         if (this.amount >=0){
-            return String.format("%s  %.02f  %s",this.timeStamp.toString(),this.amount,this.memo);
+           return String.format("%s  %.02f  %s",this.timeStamp.toString(),this.amount,this.memo);
+
         }else {
             return   String.format("%s  (%.02f)  %s",this.timeStamp.toString(),-this.amount,this.memo);
         }
